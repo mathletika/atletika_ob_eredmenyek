@@ -188,6 +188,17 @@ st.markdown(
     'Keresés sportolóra, versenyszámra, top3 listák, győztesek időgrafikonja.</div>',
     unsafe_allow_html=True
 )
+# --- Header nézetválasztó ---
+header_view = st.radio(
+    "Navigáció",
+    ["Éves nézet", "Sportoló kereső", "Versenyszám nézet"],
+    horizontal=True,
+    label_visibility="collapsed"
+)
+
+# A két választó (sidebar + header) legyen szinkronban → a header legyen az elsődleges
+view = header_view
+
 st.markdown("---")  # egy egyszerű, vékony horizontális választó a kártya helyett
 
 # ---- OLDALSÁV: NÉZET VÁLASZTÓ ----
@@ -341,7 +352,9 @@ elif view == "Versenyszám nézet":
     </div>
     """, unsafe_allow_html=True)
 
-    events = sorted(df["Versenyszám"].unique())
+    event_df_unique = df[["Versenyszám", "Tav"]].drop_duplicates()
+    event_df_unique = event_df_unique.sort_values("Tav")  # rendezzük táv szerint
+    events = event_df_unique["Versenyszám"].tolist()
     col1, col2 = st.columns([2, 1])
 
     with col1:

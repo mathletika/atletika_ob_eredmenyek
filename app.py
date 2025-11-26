@@ -196,21 +196,9 @@ header_view = st.radio(
     label_visibility="collapsed"
 )
 
-# A két választó (sidebar + header) legyen szinkronban → a header legyen az elsődleges
-view = header_view
 
 st.markdown("---")  # egy egyszerű, vékony horizontális választó a kártya helyett
 
-# ---- OLDALSÁV: NÉZET VÁLASZTÓ ----
-# OLDALSÁV (meghagyjuk, de csak vizuális opció)
-_ = st.sidebar.radio(
-    "Nézet:",
-    ["Éves nézet", "Sportoló kereső", "Versenyszám nézet"],
-    index=["Éves nézet", "Sportoló kereső", "Versenyszám nézet"].index(view)
-)
-
-st.sidebar.markdown("---")
-st.sidebar.write("Szűrők és keresés az aktuális nézetnek megfelelően.")
 
 
 # ======================================================

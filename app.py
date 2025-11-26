@@ -202,9 +202,11 @@ view = header_view
 st.markdown("---")  # egy egyszerű, vékony horizontális választó a kártya helyett
 
 # ---- OLDALSÁV: NÉZET VÁLASZTÓ ----
-view = st.sidebar.radio(
-    "Válassz nézetet:",
-    ["Éves nézet", "Sportoló kereső", "Versenyszám nézet"]
+# OLDALSÁV (meghagyjuk, de csak vizuális opció)
+_ = st.sidebar.radio(
+    "Nézet:",
+    ["Éves nézet", "Sportoló kereső", "Versenyszám nézet"],
+    index=["Éves nézet", "Sportoló kereső", "Versenyszám nézet"].index(view)
 )
 
 st.sidebar.markdown("---")

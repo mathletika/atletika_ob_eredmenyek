@@ -189,13 +189,13 @@ st.markdown(
     unsafe_allow_html=True
 )
 # --- Header nézetválasztó ---
-header_view = st.radio(
-    "Navigáció",
-    ["Éves nézet", "Sportoló kereső", "Versenyszám nézet"],
-    horizontal=True,
-    label_visibility="collapsed"
-)
 
+
+view = st.radio(
+    "Válassz nézetet:",
+    ["Éves nézet", "Sportoló kereső", "Versenyszám nézet"],
+    horizontal=True
+)
 
 st.markdown("---")  # egy egyszerű, vékony horizontális választó a kártya helyett
 
